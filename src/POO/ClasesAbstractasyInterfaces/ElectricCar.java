@@ -3,6 +3,11 @@ package POO.ClasesAbstractasyInterfaces;
 public class ElectricCar extends Vehicle implements Electric, SelfDriving { // Las interfaces permiten herencias multiples, las clases no.
     private int batteryLevel;
 
+    public ElectricCar(String brand, String model, int year, Color color, VehicleStatus vehicleStatus, int batteryLevel) {
+        super(brand, model, year, color, vehicleStatus);
+        this.batteryLevel = batteryLevel;
+    }
+
     public ElectricCar(String brand, String model, int year, int batteryLevel) {
         super(brand, model, year);
         this.batteryLevel = batteryLevel;
@@ -22,5 +27,12 @@ public class ElectricCar extends Vehicle implements Electric, SelfDriving { // L
     @Override
     public void activateAutopilot() {
         System.out.println("Modo piloto automatico activado");
+    }
+
+    @Override
+    public String toString() {
+        return "ElectricCar{" +
+                "batteryLevel=" + batteryLevel +
+                '}' + super.toString();
     }
 }
